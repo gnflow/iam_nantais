@@ -36,7 +36,7 @@ const config = {
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  port: 5432, // PostgreSQL default port
+  port: 5433, // PostgreSQL container host port
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
