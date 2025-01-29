@@ -17,8 +17,8 @@ const Header: React.FC = () => {
     };
   
     return (
-      <header className="relative bg-white shadow-md p-4">
-        <div className="flex justify-between items-center">
+      <header className="relative w-full bg-white shadow-md p-4 text-black">
+        <div className="flex justify-between items-center ">
           <h1 className="text-lg font-bold">I AM NANTAIS</h1>
           {/* Hamburger icon visible only on mobile/tablet */}
           <div className="md:hidden">

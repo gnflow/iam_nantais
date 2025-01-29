@@ -20,14 +20,16 @@ export default function Home() {
           href="#playlist"
           className="flex items-center justify-center bg-red-500 text-white rounded-lg py-2 px-4 w-full max-w-[150px] text-center"
         >
-          <Image src="/play-icon.svg" alt="Play" width={16} height={16} />
-          <span className="ml-2">PLAYLIST</span>
+          <Image src="/play.svg" alt="Play" width={16} height={16} />
+          <span className="ml-2">PLAY</span>
         </a>
         <a
           href="#shop"
           className="flex items-center justify-center bg-blue-500 text-white rounded-lg py-2 px-4 w-full max-w-[150px] text-center"
         >
-          <span>SHOP</span>
+          <Image src="/shop.svg" alt="Shop" width={18} height={18} />
+
+          <span className="ml-2">SHOP</span>
         </a>
       </div>
       <footer className="flex gap-6 flex-wrap items-center justify-center mt-10">
