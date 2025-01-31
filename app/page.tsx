@@ -8,7 +8,7 @@ export default function Home() {
       <Header />
       <main className="flex items-center justify-center flex-grow">
         <Image
-          src="/iam_nantais.svg" // Chemin vers le fichier SVG
+          src="/iamnantais.svg" // Chemin vers le fichier SVG
           alt="I am Nantais"     // Texte alternatif
           width={200}            // Largeur de l'image
           height={200}           // Hauteur de l'image
