@@ -29,7 +29,7 @@ export default function Home() {
         >
           <Image src="/shop.svg" alt="Shop" width={18} height={18} />
 
-          <span className="ml-2">SHOP</span>
+          <span className="ml-2">SHOPY</span>
         </a>
       </div>
       <footer className="flex gap-6 flex-wrap items-center justify-center mt-10">
