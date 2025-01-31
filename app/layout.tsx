@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "I'm Nantais - Staging",
+  title: "I'm Nantais - Dev",
   description: "French Music Culture App",
 };
 
