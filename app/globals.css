@@ -24,3 +24,6 @@ body {
 .flex.flex-col.items-center.p-4{
 padding: 0rem 0rem 5rem 0rem;
 }
+body > div > header > nav.absolute.top-0.left-0.w-full.bg-white.transition-transform.transform.-translate-y-full.md\:hidden{
+  background-color: unset !important;
+}
