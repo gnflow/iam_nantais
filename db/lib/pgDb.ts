@@ -25,7 +25,7 @@ export type User = {
   name?: string;
   email?: string;
   password?: string;
-  accountType?: string;
+  // accountType?: string;
   accountStatus?: boolean;
   souscriptionStatus?: boolean;
 };
@@ -36,7 +36,7 @@ const config = {
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  port: 5433, // PostgreSQL container host port
+  port: 5433, // PostgreSQL docker container host port
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
@@ -57,7 +57,7 @@ export async function getUser(usernameOrMail: string): Promise<User | null> {
       id: user[0].id,
       name: user[0].username,
       email: user[0].email,
-      accountType: user[0].account_type,
+      // accountType: user[0].account_type,
       accountStatus: user[0].account_status,
       souscriptionStatus: user[0].souscription_status,
     };
@@ -104,7 +104,7 @@ export async function validateUserCredentials(usernameOrMail: string, password: 
         id: user[0].id,
         name: user[0].username,
         email: user[0].email,
-        accountType: user[0].account_type,
+        // accountType: user[0].account_type,
         accountStatus: user[0].account_status,
         souscriptionStatus: user[0].souscription_status,
       }; 

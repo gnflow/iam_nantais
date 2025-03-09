@@ -8,13 +8,13 @@ const userSchema = z.object({
   username: z.string().min(3, "Le pseudo doit contenir au moins 3 caractères."),
   mail: z.string().email("Email invalide"),
   password: z.string().min(8, "Le mot de passe doit contenir au moins 8 caractères."),
-  accountType: z.enum(["perso", "pro"]),
+  // accountType: z.enum(["perso", "pro"]),
 });
 
 export async function POST(request:NextRequest) {
   try {
     // Parse and validate request body
-    const { username, mail, password, accountType } = userSchema.parse(await request.json());
+    const { username, mail, password } = userSchema.parse(await request.json());
 
     // Hash password using bcrypt
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -22,18 +22,18 @@ export async function POST(request:NextRequest) {
     // Insert new user into the database
     const result = await queryDatabase(
       `
-      INSERT INTO users (username, mail, password, account_type, account_status, subscription_status, created_at)
-      VALUES ($1, $2, $3, $4, true, false, NOW())
-      RETURNING id, account_type;
+      INSERT INTO users (username, mail, password, account_status, subscription_status, created_at)
+      VALUES ($1, $2, $3, true, false, NOW())
+      RETURNING id;
       `,
-      [username, mail, hashedPassword, accountType]
+      [username, mail, hashedPassword]
     );
 
     // Send success response
     return NextResponse.json({
       success: true,
       userId: result[0].id,
-      accountType: result[0].account_type,
+      // accountType: result[0].account_type,
     });
   } catch (error) {
     // Handle validation errors

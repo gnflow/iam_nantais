@@ -8,6 +8,7 @@ import { z } from "zod"; // Importation de Zod pour la validation
 // import { serverSignIn } from "@/db/lib/signInServer";
 // import { useActionState } from 'react';
 import { serverSignIn } from "@/db/lib/actionServer";
+import Link from "next/link";
 
 // Schéma de validation pour les données de connexion
 // const signinSchema = z.object({
@@ -31,9 +32,9 @@ export default function SignInForm() {
     password: "",
   });
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  // const toggleTheme = () => {
+  //   setTheme(theme === "light" ? "dark" : "light");
+  // };
 
   // Prend les infos des inputs du formulaire
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -156,10 +157,7 @@ export default function SignInForm() {
         <button
           type="submit"
           aria-disabled={true}
-          className={`w-full py-2 px-4 font-bold rounded ${theme === "light"
-            ? "bg-blue-500 text-white hover:bg-blue-700"
-            : "bg-green-500 text-white hover:bg-green-700"
-            }`}
+          className={`w-full py-2 px-4 font-bold rounded bg-blue-500 text-white hover:bg-blue-700`}
         >
           Sign In
         </button>
@@ -173,14 +171,8 @@ export default function SignInForm() {
 
         {/* <SignInButton theme={theme} /> */}
         {errors.submit && <p className="text-red-500 text-xs mt-4">{errors.submit}</p>}
+        <Link href="/" className="text-lg font-light">Retour</Link>
       </form>
-
-      <button
-        onClick={toggleTheme}
-        className="mt-4 text-sm text-gray-600 dark:text-gray-400 underline"
-      >
-        Toggle Theme
-      </button>
     </div>
   );
 }
