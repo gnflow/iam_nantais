@@ -68,8 +68,8 @@ const Header: React.FC = () => {
         </div>
         <ul className="flex flex-col items-center p-4 space-y-4">
           <li><a href="/presentation" className="uppercase hover:text-red-500" onClick={closeMenu}>Présentation</a></li>
-          <li><a href="#emission" className="uppercase hover:text-red-500" onClick={closeMenu}>Notre émission</a></li>
-          <li><a href="#artistes" className="uppercase hover:text-red-500" onClick={closeMenu}>Artistes Nantais/es</a></li>
+          <li><a href="/emission" className="uppercase hover:text-red-500" onClick={closeMenu}>Notre émission</a></li>
+          <li><a href="/artistes" className="uppercase hover:text-red-500" onClick={closeMenu}>Artistes Nantais/es</a></li>
           <li><a href="/events" className="uppercase hover:text-red-500" onClick={closeMenu}>Events/réservation</a></li>
           
           {/* Mobile Actions */}
