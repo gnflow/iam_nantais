@@ -31,9 +31,9 @@ const Header: React.FC = () => {
         <nav className="hidden md:flex md:justify-center md:items-center">
           <ul className="flex space-x-8">
             <li><a href="/presentation" className="uppercase hover:text-red-500">Présentation</a></li>
-            <li><a href="#emission" className="uppercase hover:text-red-500">Notre émission</a></li>
-            <li><a href="#artistes" className="uppercase hover:text-red-500">Artistes Nantais/es</a></li>
-            <li><a href="/events" className="uppercase hover:text-red-500">Events/réservation</a></li>
+            <li><a href="/emission" className="uppercase hover:text-red-500">Notre émission</a></li>
+            <li><a href="/artistes" className="uppercase hover:text-red-500">Artistes Nantais/es</a></li>
+            <li><a href="/events" className="uppercase hover:text-red-500">Events</a></li>
           </ul>
         </nav>
         

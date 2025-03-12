@@ -23,26 +23,6 @@ export default function Presentation() {
         ></iframe>
       </div>
       
-      {/* Playlists */}
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Playlist YouTube */}
-        <div>
-          <h2 className="text-white text-2xl font-semibold mb-4">Playlist YouTube</h2>
-          <div className="grid gap-4">
-            <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/VIDEO_ID_1" allowFullScreen></iframe>
-            <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/VIDEO_ID_2" allowFullScreen></iframe>
-          </div>
-        </div>
-        
-        {/* Playlist Instagram */}
-        <div>
-          <h2 className="text-white text-2xl font-semibold mb-4">Playlist Instagram</h2>
-          <div className="grid gap-4">
-            <iframe className="w-full aspect-video" src="https://www.instagram.com/reel/INSTAGRAM_VIDEO_1/embed" allowFullScreen></iframe>
-            <iframe className="w-full aspect-video" src="https://www.instagram.com/reel/INSTAGRAM_VIDEO_2/embed" allowFullScreen></iframe>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

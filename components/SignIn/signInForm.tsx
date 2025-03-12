@@ -1,3 +1,4 @@
+// SignInForm
 "use client"; // Obligatoire pour utiliser des hooks côté client
 
 import { useState } from "react";
@@ -161,12 +162,28 @@ export default function SignInForm() {
         >
           Sign In
         </button>
+        <button
+          type="button"
+          onClick={() => signIn("facebook")}
+          className="w-full py-2 px-4 font-bold rounded bg-blue-600 text-white hover:bg-blue-800"
+        >
+          Sign in with Facebook
+        </button>
+
+        <button
+          type="button"
+          onClick={() => signIn("instagram")}
+          className="w-full py-2 px-4 font-bold rounded bg-pink-600 text-white hover:bg-pink-800 mt-2"
+        >
+          Sign in with Instagram
+        </button>
+
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
           aria-atomic="true"
         >
-          
+
         </div>
 
         {/* <SignInButton theme={theme} /> */}

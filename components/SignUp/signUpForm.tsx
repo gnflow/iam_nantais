@@ -1,3 +1,4 @@
+// SignUpForm
 "use client"; // Active les hooks React côté client
 
 import { useState, useEffect } from "react";

@@ -29,7 +29,7 @@ export default function EventsBooking() {
 
       {/* Section des Événements */}
       <section className="text-center max-w-3xl mt-8">
-        <h1 className="text-4xl sm:text-6xl font-bold mb-4">Événements & Réservations</h1>
+        <h1 className="text-4xl sm:text-6xl font-bold mb-4">Événements</h1>
         <p className="text-lg sm:text-xl mb-6">Réservez votre place pour nos événements exclusifs !</p>
       </section>
 
