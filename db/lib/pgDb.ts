@@ -1,10 +1,9 @@
-// db.ts
-import { Pool } from 'pg';
-import bcrypt from "bcryptjs"
-// import bcrypt from "bcryptjs"
-import { object, string } from "zod"
-import { sql } from '@vercel/postgres';
+// db/lib/pgDb.ts
+import { Pool } from 'pg'; // Utiliser Pool pour gérer les connexions
+import bcrypt from "bcryptjs";
+import { object, string } from "zod";
 
+// Schéma de validation avec Zod
 export const signInSchema = object({
   usernameOrMail: string({ required_error: "Username or Email is required" })
     .min(3, "Username or Email is required")
@@ -20,128 +19,45 @@ export const signInSchema = object({
     .max(32, "Password must be less than 32 characters"),
 });
 
+// Type utilisateur
 export type User = {
-  id: string; // Ajoutez cet identifiant unique
+  id: string; // Identifiant unique
   name?: string;
   email?: string;
   password?: string;
-  // accountType?: string;
-  accountStatus?: boolean;
-  souscriptionStatus?: boolean;
 };
 
-// Initialize the pool with connection configuration
+// Configuration de la connexion à la base de données
 const config = {
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  port: 5433, // PostgreSQL docker container host port
-  max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
-}
-// Ensure `pool` is initialized correctly
-let pool: Pool | null = null;
+  port: 5433, // Port par défaut de PostgreSQL
+  max: 20, // Nombre maximal de connexions dans le pool
+  idleTimeoutMillis: 30000, // Temps d'inactivité avant qu'une connexion soit fermée
+  connectionTimeoutMillis: 2000, // Temps d'attente pour établir une connexion
+};
 
-// then i turn into Get user by id
-export async function getUser(usernameOrMail: string): Promise<User | null> {
-  try {
-    // const user = await sql`SELECT * FROM users WHERE mail = ${usernameOrMail} OR username = ${usernameOrMail} LIMIT 1`;
-    const user = await queryDatabase(`SELECT * FROM users WHERE mail = $1 OR username = $1 LIMIT 1`,[usernameOrMail]);
-    if (!user || user.length === 0) {
-      console.log("pgDb.ts ::: User not found");
-      return null;
-    }
-    return <User>{
-      id: user[0].id,
-      name: user[0].username,
-      email: user[0].email,
-      // accountType: user[0].account_type,
-      accountStatus: user[0].account_status,
-      souscriptionStatus: user[0].souscription_status,
-    };
-    // version sql vercel
-    // return <User>{
-    //   id: user.rows[0].id,
-    //   name: user.rows[0].username,
-    //   email: user.rows[0].email,
-    //   typeAccount: user.rows[0].typeAccount,
-    //   accountStatus: user.rows[0].account_status,
-    //   souscriptionStatus: user.rows[0].souscription_status,
-    // };
-  } catch (error) {
-    console.error('pgDb.ts ::: Failed to fetch user:', error);
-    throw new Error('pgDb.ts ::: Failed to fetch user.');
-  }
-}
+// Initialiser le pool de connexions
+const pool = new Pool(config);
 
-export async function validateUserCredentials(usernameOrMail: string, password: string): Promise<User | null> {
-  try {
-    // const user = await sql
-    //   `SELECT * FROM users WHERE mail = ${usernameOrMail} OR username = ${usernameOrMail} LIMIT 1`
-    //   ;
-    const user = await queryDatabase(`SELECT * FROM users WHERE mail = $1 OR username = $1 LIMIT 1`,[usernameOrMail]);
-
-    // if (!user || user.rows.length === 0) { // vercel version 
-    if (!user || user.length === 0) {
-      console.log("pgDb.ts ::: User not found");
-      return null;
-      // throw new Error('Utilisateur non trouvé'); //devient code inateignable 
-    }
-    console.log("pgDb.ts ::: User info found then pasword checking");
-
-    const isPasswordValid = await bcrypt.compare(password, user[0].password);
-    if (!isPasswordValid) {
-      console.log("pgDb.ts ::: Mot de passe incorrect");
-      return null;
-      // throw new Error('Mot de passe incorrect');
-    }
-
-    console.log("pgDb.ts ::: Granted pasword checking ok");
-
-    return <User>{
-        id: user[0].id,
-        name: user[0].username,
-        email: user[0].email,
-        // accountType: user[0].account_type,
-        accountStatus: user[0].account_status,
-        souscriptionStatus: user[0].souscription_status,
-      }; 
-    // return <User>{
-    //   id: user.rows[0].id,
-    //   name: user.rows[0].username,
-    //   email: user.rows[0].email,
-    //   typeAccount: user.rows[0].typeAccount,
-    //   accountStatus: user.rows[0].account_status,
-    //   souscriptionStatus: user.rows[0].souscription_status,
-    // }; // Return user data excluding sensitive fields
-  } catch (error) {
-    console.error('pgDb.ts ::: Failed to fetch user:', error);
-    throw new Error('pgDb.ts ::: Failed to fetch user.');
-  }
-}
-
-// PG Query Database
-// Query Database Function
+// Fonction pour exécuter des requêtes SQL
 export async function queryDatabase(query: string, values?: any[]) {
-  if (!pool) {
-    pool = new Pool(config); // Initialize pool only once
-  }
-
-  const client = await pool.connect();
-  console.log(`pgDb.ts ::: pool connection via - PG | Log admin to postgres container`);
+  const client = await pool.connect(); // Obtenir une connexion du pool
 
   try {
-    const result = await client.query(query, values);
+    console.log("pgDb.ts ::: Connected to PostgreSQL via Pool");
+
+    const result = await client.query(query, values); // Exécuter la requête
     return result.rows;
   } catch (err) {
     console.error("pgDb.ts ::: Error during database query", err);
     throw new Error("Database query failed");
   } finally {
-    client.release();
+    client.release(); // Libérer la connexion pour qu'elle soit réutilisée
   }
 }
 
-
-export default pool; // peut etre le rajouter ds l'adapter auth.ts
+// Exporter le pool (optionnel, si vous en avez besoin ailleurs)
+export default pool;

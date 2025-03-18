@@ -7,6 +7,7 @@ import { signIn } from "@/auth"
 import { z, object, string } from "zod"; // Importation de Zod pour la validation
 import Link from "next/link";
 import { serverSignIn } from "@/db/lib/actionServer";
+// import { signInSchema } from "@/db/lib/pgDb";
 
 // Schéma de validation avec Zod
 export const signInSchema = object({
@@ -25,6 +26,7 @@ export const signInSchema = object({
 });
 
 export default function SignInForm() {
+  const [theme, setTheme] = useState<string>("light"); // Gestion du thème clair ou sombre
   const [error, setError] = useState<String | null>(null); // Gestion des messages texte d'erreurs au user.
   const [errors, setErrors] = useState<any>({}); // Gestion des messages d'erreurs à afficher au user.
   const router = useRouter();
@@ -61,17 +63,27 @@ export default function SignInForm() {
     if (!validateForm()) return;
 
     try {
-      await serverSignIn("credentials", formData);
-      router.push("/dashboard");
+      const response = await fetch("/api/auth/signin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert("Connexion réussie !");
+        router.push("/dashboard");
+      } else {
+        setErrors({ ...errors, submit: result.error });
+      }
     } catch (error) {
       setErrors({ ...errors, submit: "Une erreur s'est produite lors de la connexion." });
     }
   };
 
-
   return (
     <div
-      className={`min-h-screen flex flex-col items-center justify-center bg-white text-black
+      className={`min-h-screen flex flex-col items-center justify-center ${theme === "light" ? "bg-white text-black" : "bg-gray-800 text-white"
         }`}
     >
       <h1 className="text-4xl font-bold mb-8">Sign In</h1>
@@ -142,9 +154,9 @@ export default function SignInForm() {
             type="button"
             onClick={async () => {
               try {
-                await serverSignIn("facebook", { callbackUrl: "/dashboard" });
+                await signIn("facebook", { callbackUrl: "/dashboard" });
               } catch (error) {
-                console.error("Erreur OAuth:", error);
+                console.error("Erreur OAuth:", error); // Ajoutez ce log
                 setErrors({ ...errors, submit: "Une erreur s'est produite lors de la connexion OAuth." });
               }
             }}
@@ -157,9 +169,9 @@ export default function SignInForm() {
             type="button"
             onClick={async () => {
               try {
-                await serverSignIn("instagram", { callbackUrl: "/dashboard" });
+                await signIn("instagram", { callbackUrl: "/dashboard" });
               } catch (error) {
-                console.error("Erreur OAuth:", error);
+                console.error("Erreur OAuth:", error); // Ajoutez ce log
                 setErrors({ ...errors, submit: "Une erreur s'est produite lors de la connexion OAuth." });
               }
             }}
@@ -172,9 +184,9 @@ export default function SignInForm() {
             type="button"
             onClick={async () => {
               try {
-                await serverSignIn("tiktok", { callbackUrl: "/dashboard" });
+                await signIn("tiktok", { callbackUrl: "/dashboard" });
               } catch (error) {
-                console.error("Erreur OAuth:", error);
+                console.error("Erreur OAuth:", error); // Ajoutez ce log
                 setErrors({ ...errors, submit: "Une erreur s'est produite lors de la connexion OAuth." });
               }
             }}
@@ -182,7 +194,6 @@ export default function SignInForm() {
           >
             Sign in with TikTok
           </button>
-
         </div>
 
         {/* <SignInButton theme={theme} /> */}
