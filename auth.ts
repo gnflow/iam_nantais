@@ -14,9 +14,9 @@ type ExtendedUser = {
   id: string;
   name?: string;
   email?: string;
-  accountType?: string;
-  accountStatus?: boolean;
-  subscriptionStatus?: boolean;
+  // accountType?: string;
+  // accountStatus?: boolean;
+  // subscriptionStatus?: boolean;
 };
 
 // 🔹 Extension des types de NextAuth pour inclure nos champs personnalisés
@@ -29,9 +29,9 @@ declare module "next-auth" {
 declare module "next-auth/jwt" {
   interface JWT {
     id: string;
-    accountType?: string;
-    accountStatus?: boolean;
-    subscriptionStatus?: boolean;
+    // accountType?: string;
+    // accountStatus?: boolean;
+    // subscriptionStatus?: boolean;
   }
 }
 

@@ -7,7 +7,7 @@ import { signIn } from "@/auth"
 import { z, object, string } from "zod"; // Importation de Zod pour la validation
 import Link from "next/link";
 import { serverSignIn } from "@/db/lib/actionServer";
-// import { signInSchema } from "@/db/lib/pgDb";
+// import { signInSchema } from "@/db/lib/vercelNeon";
 
 // Schéma de validation avec Zod
 export const signInSchema = object({

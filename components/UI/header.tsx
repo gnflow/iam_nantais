@@ -25,15 +25,16 @@ const Header: React.FC = () => {
   return (
     <header className="relative w-full bg-white shadow-md p-4 text-black">
       <div className="flex justify-between items-center">
-        <Link href="/" className="text-lg font-bold">I AM NANTAIS</Link>
+        <Link href="/" className="text-lg font-bold">I'M NANTAIS</Link>
         
         {/* Desktop Navigation - Only visible on large screens */}
         <nav className="hidden md:flex md:justify-center md:items-center">
           <ul className="flex space-x-8">
             <li><a href="/presentation" className="uppercase hover:text-red-500">Présentation</a></li>
-            <li><a href="/emission" className="uppercase hover:text-red-500">Notre émission</a></li>
-            <li><a href="/artistes" className="uppercase hover:text-red-500">Artistes Nantais/es</a></li>
             <li><a href="/events" className="uppercase hover:text-red-500">Events</a></li>
+            <li><a href="/emission" className="uppercase hover:text-red-500">Notre émission</a></li>
+            <li><a href="/artistes" className="uppercase hover:text-red-500">Artistes</a></li>
+            
           </ul>
         </nav>
         
@@ -67,10 +68,11 @@ const Header: React.FC = () => {
           <button onClick={closeMenu} className="text-xl">&times;</button>
         </div>
         <ul className="flex flex-col items-center p-4 space-y-4">
+          <Link href="/" className="text-lg font-bold">I'M NANTAIS</Link>
           <li><a href="/presentation" className="uppercase hover:text-red-500" onClick={closeMenu}>Présentation</a></li>
-          <li><a href="/emission" className="uppercase hover:text-red-500" onClick={closeMenu}>Notre émission</a></li>
-          <li><a href="/artistes" className="uppercase hover:text-red-500" onClick={closeMenu}>Artistes Nantais/es</a></li>
           <li><a href="/events" className="uppercase hover:text-red-500" onClick={closeMenu}>Events</a></li>
+          <li><a href="/emission" className="uppercase hover:text-red-500" onClick={closeMenu}>Notre émission</a></li>
+          <li><a href="/artistes" className="uppercase hover:text-red-500" onClick={closeMenu}>Artistes</a></li>
           
           {/* Mobile Actions */}
           <div className="flex flex-col items-center space-y-2 mt-4">

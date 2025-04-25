@@ -1,7 +1,7 @@
 // /app/api/auth/signup/route.tsx
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { queryDatabase } from "@/db/lib/pgDb";
+import { queryDtbs } from "@/db/lib/vercelNeon";
 import { z } from "zod";
 
 const userSchema = z.object({
@@ -14,8 +14,8 @@ export async function POST(request: NextRequest) {
   try {
     const { username, mail, password } = userSchema.parse(await request.json());
 
-    const existingUser = await queryDatabase(
-      `SELECT * FROM users WHERE mail = $1 OR username = $2 LIMIT 1`,
+    const existingUser = await queryDtbs(
+      `SELECT * FROM iam_nantais.users WHERE mail = $1 OR username = $2 LIMIT 1`,
       [mail, username]
     );
 
@@ -25,8 +25,8 @@ export async function POST(request: NextRequest) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const result = await queryDatabase(
-      `INSERT INTO users (username, mail, password) VALUES ($1, $2, $3) RETURNING id;`,
+    const result = await queryDtbs(
+      `INSERT INTO iam_nantais.users (username, mail, password) VALUES ($1, $2, $3) RETURNING id;`,
       [username, mail, hashedPassword]
     );
 

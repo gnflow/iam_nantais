@@ -1,14 +1,14 @@
 // /app/api/auth/create-user/route.tsx
 import { NextResponse } from "next/server";
-import { queryDatabase } from "@/db/lib/pgDb";
+import { queryDtbs } from "@/db/lib/vercelNeon";
 
 export async function POST(request: Request) {
   try {
     const { username, mail } = await request.json();
 
     // Créer un nouvel utilisateur
-    const result = await queryDatabase(
-      `INSERT INTO users (username, mail, password) VALUES ($1, $2, $3) RETURNING id, username, mail;`,
+    const result = await queryDtbs(
+      `INSERT INTO iam_nantais.users (username, mail, password) VALUES ($1, $2, $3) RETURNING id, username, mail;`,
       [username, mail, null] // Pas de mot de passe pour les utilisateurs tiers
     );
 

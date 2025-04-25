@@ -1,5 +1,6 @@
-// db/lib/pgDb.ts
+// db/lib/vercelNeon.ts
 import { Pool } from 'pg'; // Utiliser Pool pour gérer les connexions
+import { neon } from '@neondatabase/serverless';
 import bcrypt from "bcryptjs";
 import { object, string } from "zod";
 
@@ -43,16 +44,16 @@ const config = {
 const pool = new Pool(config);
 
 // Fonction pour exécuter des requêtes SQL
-export async function queryDatabase(query: string, values?: any[]) {
+export async function queryDtbs(query: string, values?: any[]) {
   const client = await pool.connect(); // Obtenir une connexion du pool
 
   try {
-    console.log("pgDb.ts ::: Connected to PostgreSQL via Pool");
+    console.log("vercelNeon.ts ::: Connected to PostgreSQL via Pool");
 
     const result = await client.query(query, values); // Exécuter la requête
     return result.rows;
   } catch (err) {
-    console.error("pgDb.ts ::: Error during database query", err);
+    console.error("vercelNeon.ts ::: Error during database query", err);
     throw new Error("Database query failed");
   } finally {
     client.release(); // Libérer la connexion pour qu'elle soit réutilisée

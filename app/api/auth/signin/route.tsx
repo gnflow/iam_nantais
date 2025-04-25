@@ -1,7 +1,6 @@
 // /app/api/auth/signin/route.tsx
 import { NextResponse } from "next/server";
-import { sql } from "@vercel/postgres";
-import { queryDatabase, signInSchema } from "@/db/lib/pgDb";
+import { queryDtbs, signInSchema } from "@/db/lib/vercelNeon";
 import bcrypt from "bcryptjs";
 
 export async function POST(request: Request) {
@@ -23,8 +22,8 @@ export async function POST(request: Request) {
     const { usernameOrMail, password } = parsed.data;
 
     // 🔹 Vérification si l'utilisateur existe
-    const user = await queryDatabase(
-      `SELECT id, username, mail, password FROM users WHERE mail = $1 OR username = $1 LIMIT 1`,
+    const user = await queryDtbs(
+      `SELECT id, username, mail, password FROM iam_nantais.users WHERE mail = $1 OR username = $1 LIMIT 1`,
       [usernameOrMail]
     );
 

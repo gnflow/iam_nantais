@@ -16,9 +16,9 @@ export default function Presentation() {
       <div className="w-full max-w-4xl aspect-video mb-10">
         <iframe
           className="w-full h-full rounded-lg shadow-lg"
-          src="https://www.youtube.com/embed/TON_VIDEO_ID"
+          src="https://www.youtube.com/embed/1kzfLmrcEJo?si=64qTdG5DqQ6RjzDD"
           title="Présentation"
-          frameBorder="0"
+          // frameBorder="0"
           allowFullScreen
         ></iframe>
       </div>

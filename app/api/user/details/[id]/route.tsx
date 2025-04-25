@@ -1,4 +1,4 @@
-import { queryDatabase } from '@/db/lib/pgDb';
+import { queryDtbs } from '@/db/lib/vercelNeon';
 import { NextResponse } from 'next/server';
 interface Context {
     params: Promise<{ id: string }>;
@@ -22,11 +22,11 @@ interface Context {
           SELECT 
             first_name, last_name, birth_date, origin_place, address, phone, 
             business_name, business_type, business_id_type, business_address, business_email
-          FROM user_details
+          FROM iam_nantais.user_details
           WHERE user_id = $1
         `;
 
-        const userDetails = await queryDatabase(query, [id]);
+        const userDetails = await queryDtbs(query, [id]);
 
         if (!userDetails || userDetails.length === 0) {
             return NextResponse.json({ error: 'User details not found' }, { status: 404 });
@@ -88,7 +88,7 @@ export async function PUT(req: Request) {
 
     // Requête SQL pour mettre à jour les détails de l'utilisateur
     const query = `
-      UPDATE user_details
+      UPDATE iam_nantais.user_details
       SET 
         first_name = COALESCE($2, first_name), 
         last_name = COALESCE($3, last_name), 
@@ -105,7 +105,7 @@ export async function PUT(req: Request) {
       WHERE user_id = $1
     `;
 
-    const result = await queryDatabase(query, [
+    const result = await queryDtbs(query, [
       id,
       first_name,
       last_name,

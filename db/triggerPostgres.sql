@@ -1,3 +1,4 @@
+-- Ce code fonctionne par default sur le schema public
 -- Supprimer la fonction existante si elle existe déjà
 DROP FUNCTION IF EXISTS insert_user_defaults CASCADE;
 

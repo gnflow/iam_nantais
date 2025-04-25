@@ -1,6 +1,6 @@
 // /app/api/auth/check-user/route.tsx
 import { NextRequest, NextResponse } from "next/server";
-import { queryDatabase } from "@/db/lib/pgDb";
+import { queryDtbs } from "@/db/lib/vercelNeon";
 import { z } from "zod";
 
 // Schéma de validation pour éviter toute donnée incorrecte
@@ -23,8 +23,8 @@ export async function POST(request: NextRequest) {
     const { username, mail } = parsed.data;
 
     // Vérifier si l'utilisateur existe par email ou username
-    const result = await queryDatabase(
-      `SELECT id FROM users WHERE mail = $1 OR username = $2 LIMIT 1`,
+    const result = await queryDtbs(
+      `SELECT id FROM iam_nantais.users WHERE mail = $1 OR username = $2 LIMIT 1`,
       [mail || "", username || ""]
     );
 
