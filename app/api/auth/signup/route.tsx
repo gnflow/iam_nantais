@@ -20,7 +20,13 @@ export async function POST(request: NextRequest) {
     );
 
     if (existingUser.length > 0) {
-      return NextResponse.json({ success: false, error: "Utilisateur déjà existant." }, { status: 400 });
+      // Evite conflit de ressouce.
+      // return NextResponse.json({ success: false, error: "Utilisateur déjà existant." }, { status: 400 });
+      return NextResponse.json(
+        { success: false, error: "Utilisateur déjà existant." },
+        { status: 409 }
+      );
+      
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -31,8 +37,27 @@ export async function POST(request: NextRequest) {
     );
 
     return NextResponse.json({ success: true, userId: result[0].id });
-  } catch (error) {
-    console.error(error);
+  } catch (error: any) {
+    // Vérifie si l'erreur est de type PostgreSQL (doublon clé unique)
+    if (error?.code === "23505" && typeof error?.detail === "string") {
+      const message = error.detail.includes("(username)")
+        ? "Ce nom d'utilisateur est déjà pris."
+        : error.detail.includes("(mail)")
+        ? "Cet email est déjà utilisé."
+        : "Conflit : utilisateur existant.";
+  
+        const field = error.detail.includes("(username)")
+        ? "username"
+        : error.detail.includes("(mail)")
+          ? "mail"
+          : "general";
+      
+      return NextResponse.json({ success: false, error: message, field }, { status: 409 });
+      
+    }
+  
+    console.error("Signup Error:", error);
     return NextResponse.json({ success: false, error: "Erreur serveur." }, { status: 500 });
   }
+  
 }

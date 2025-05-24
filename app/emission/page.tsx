@@ -15,38 +15,11 @@ export default function Presentation() {
       
       
       {/* Playlists */}
-      {/* <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10"> */}
-        {/* Playlist YouTube */}
-        {/* <div>
-          <h2 className="text-white text-2xl font-semibold mb-4">Playlist YouTube</h2>
-          <div className="grid gap-4">
-            <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/videoseries?list=RDEMrwEh40ja9X4HBDNhhv4VGA&start_radio=1" allowFullScreen></iframe>
-            <iframe className="w-full aspect-video" src="https://www.youtube.com/embed/VIDEO_ID_2" allowFullScreen></iframe>
-          </div>
-        </div> */}
-        
-        {/* Playlist Instagram */}
-        {/* <div>
-          <h2 className="text-white text-2xl font-semibold mb-4">Playlist Instagram</h2>
-          <div className="grid gap-4">
-            <iframe className="w-full aspect-video" src="https://www.instagram.com/reel/INSTAGRAM_VIDEO_1/embed" allowFullScreen></iframe>
-            <iframe className="w-full aspect-video" src="https://www.instagram.com/reel/INSTAGRAM_VIDEO_2/embed" allowFullScreen></iframe>
-          </div>
-        </div>
-      </div> */}
+
       
       <YouTubePlaylistNetflix/>
       <InstagramPlaylistScroll/>
-      {/* Playlist Instagram */}
-      {/* <div>
-          <h2 className="text-white text-2xl font-semibold mb-4">Playlist Instagram</h2>
-          <div className="grid gap-4">
-            <iframe className="w-full aspect-video" src="https://www.instagram.com/reel/DB_4BP9sqtY/embed?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==" allowFullScreen></iframe>
-            <iframe className="w-full aspect-video" src="https://www.instagram.com/reel/DCCzA00xCkT/embed?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" allowFullScreen></iframe>
-            <iframe className="w-full aspect-video" src="https://www.instagram.com/reel/DCE9I8Os7qM/embed?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" allowFullScreen></iframe>
-          </div>
-          
-        </div> */}
+      
    
     </div>
   );
