@@ -1,3 +1,4 @@
+// components/NavigationHeader/NavigationHeader.tsx
 import React from "react";
 
 import {Bars4Icon}  from "@heroicons/react/24/outline"; // heroicons.d.ts to make it works as v1 or v2

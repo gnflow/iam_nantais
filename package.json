@@ -15,8 +15,10 @@
     "@builder.io/dev-tools": "^1.5.0",
     "@builder.io/react": "^8.0.5",
     "@builder.io/sdk": "^6.0.2",
+    "@hcaptcha/react-hcaptcha": "^1.12.0",
     "@headlessui/react": "^2.2.2",
     "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^5.0.1",
     "@neondatabase/serverless": "^1.0.0",
     "bcryptjs": "^2.4.3",
     "clsx": "^2.1.1",
@@ -31,6 +33,8 @@
     "pg": "^8.13.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.57.0",
+    "react-hot-toast": "^2.5.2",
     "zod": "^3.24.1"
   },
   "devDependencies": {

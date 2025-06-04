@@ -28,7 +28,7 @@ const Header: React.FC = () => {
         <Link href="/" className="text-lg font-bold">I'M NANTAIS</Link>
         
         {/* Desktop Navigation - Only visible on large screens */}
-        <nav className="hidden md:flex md:justify-center md:items-center">
+        <nav className="hidden lg:flex md:justify-center md:items-center">
           <ul className="flex space-x-8">
             <li><a href="/presentation" className="uppercase hover:text-red-500">Présentation</a></li>
             <li><a href="/events" className="uppercase hover:text-red-500">Events</a></li>
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
         </nav>
         
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-4">
           <button className="p-2 hover:text-red-500" onClick={toggleSearch}>
             <Search size={20} />
           </button>
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
         </div>
         
         {/* Hamburger Icon for Mobile */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <HamburgerIcon onClick={toggleMenu} />
         </div>
       </div>
