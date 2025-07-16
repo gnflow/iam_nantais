@@ -4,7 +4,7 @@ export default function Footer(){
         <footer className="flex gap-6 flex-wrap items-center justify-center mt-10">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/contact"
+          href="/conditions-utilisation"
         >
           <Image
             aria-hidden
@@ -13,11 +13,11 @@ export default function Footer(){
             width={16}
             height={16}
           />
-          Contact Us
+          CGU
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="#"
+          href="/politique-confidentialite"
         >
           <Image
             aria-hidden
@@ -26,11 +26,11 @@ export default function Footer(){
             width={16}
             height={16}
           />
-          CGV
+          Politique de confidentialité
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="#"
+          href="/suppression-donnees"
         >
           <Image
             aria-hidden
@@ -39,7 +39,7 @@ export default function Footer(){
             width={16}
             height={16}
           />
-          Partners →
+          Suppression données →
         </a>
       </footer>
     );

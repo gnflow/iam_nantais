@@ -8,8 +8,8 @@ export default function Presentation() {
       
       {/* Hero Section */}
       <section className="text-center max-w-3xl mt-8">
-        <h1 className="text-white text-4xl sm:text-6xl font-bold mb-4">Bienvenue sur notre Présentation</h1>
-        <p className="text-white text-lg sm:text-xl mb-6">Découvrez notre projet en vidéo et explorez nos playlists exclusives.</p>
+        <h1 className="text-white text-4xl sm:text-6xl font-bold mb-4">Bienvenue!</h1>
+        <p className="text-white text-lg sm:text-xl mb-6">Découvrez notre projet en vidéo.</p>
       </section>
       
       {/* Video de Présentation */}
