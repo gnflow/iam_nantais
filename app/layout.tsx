@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 // import Header from "@/components/UI/header";
 // import Footer from "@/components/UI/footer";
+import Script from 'next/script';
 import { Toaster } from 'react-hot-toast';
 
 
@@ -29,6 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+      <script defer src="https://cloud.umami.is/script.js" data-website-id="a7c6f63e-3b83-46f4-864c-3c05207f3d68"></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
