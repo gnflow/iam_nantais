@@ -1,46 +1,45 @@
-import Image from "next/image";
-export default function Footer(){
-    return (
-        <footer className="flex gap-6 flex-wrap items-center justify-center mt-10">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/conditions-utilisation"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          CGU
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/politique-confidentialite"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Politique de confidentialité
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/suppression-donnees"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Suppression données →
-        </a>
-      </footer>
-    );
+import Link from 'next/link';
+
+export default function Footer() {
+  return (
+    <footer className="w-full bg-black text-white py-10 px-4 sm:px-12 text-sm">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        {/* Bloc identité / description */}
+        <div>
+          <h2 className="text-lg font-bold mb-2">I’m Nantais</h2>
+          <p>Un média culturel indépendant. Actualités, musique, mode, danse et entrepreneuriat à Nantes et au-delà.</p>
+          <p className="mt-2">Édité par la structure I’m Nantais (en cours de création).</p>
+        </div>
+
+        {/* Bloc liens légaux */}
+        <div>
+          <h3 className="font-semibold mb-2">Informations légales</h3>
+          <ul className="space-y-1">
+            <li><Link href="/conditions-utilisation" className="hover:underline">Conditions d’utilisation</Link></li>
+            <li><Link href="/politique-confidentialite" className="hover:underline">Politique de confidentialité</Link></li>
+            <li><Link href="/cookies" className="hover:underline">Politique des cookies</Link></li>
+            <li><Link href="/suppression-donnees" className="hover:underline">Suppression de données</Link></li>
+          </ul>
+        </div>
+
+        {/* Bloc crédits techniques */}
+        <div>
+          <h3 className="font-semibold mb-2">Crédits</h3>
+          <p>
+            Design & développement : <br />
+            <a href="#" target="_blank" rel="noopener noreferrer" className="underline">
+              PHNM Ethica Partners
+            </a>
+          </p>
+          {/* <p className="mt-2 italic text-gray-400">Ce site est propulsé par Next.js, WordPress Headless, Vercel & Umami.</p> */}
+        </div>
+      </div>
+
+      {/* Bas de page */}
+      <div className="mt-10 text-center text-xs text-gray-500">
+        © {new Date().getFullYear()} I’m Nantais. Tous droits réservés.
+      </div>
+    </footer>
+  );
 }

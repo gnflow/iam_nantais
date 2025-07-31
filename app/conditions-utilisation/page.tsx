@@ -10,8 +10,8 @@ export default function ConditionsUtilisation() {
                 <h1 className="text-2xl font-bold mb-4">Conditions Générales d'Utilisation</h1>
 
                 <p><strong>Éditeur du site</strong><br />
-                    Ce site est édité par <em>[Nom du projet ou société]</em>,<br />
-                    Email de contact : contact@votresite.com</p>
+                    I’m Nantais (structure en cours de création)<br />
+                    Contact : contact@imnantais.com</p>
 
                 <h2 className="mt-4 font-semibold">Objet</h2>
                 <p>Les présentes conditions générales d'utilisation (CGU) ont pour objet de définir les modalités d'accès et d'utilisation du site [nom du site]. En accédant au site, vous acceptez sans réserve ces conditions.</p>

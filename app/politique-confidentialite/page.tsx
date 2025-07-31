@@ -10,7 +10,7 @@ export default function PolitiqueConfidentialite() {
                 <h1 className="text-2xl font-bold mb-4">Politique de Confidentialité</h1>
 
                 <h2 className="mt-4 font-semibold">Responsable du traitement</h2>
-                <p>Le responsable du traitement des données est <em>[Nom du projet ou société]</em>, contact@votresite.com</p>
+                <p>I’m Nantais (structure en cours de création), contact@imnantais.com</p>
 
                 <h2 className="mt-4 font-semibold">Quelles données collectons-nous ?</h2>
                 <p>- Informations transmises via le formulaire de contact (nom, email, message)<br />
@@ -28,13 +28,13 @@ export default function PolitiqueConfidentialite() {
                     hébergeur (Vercel), outil d’emailing, Big Cartel pour la boutique.</p>
 
                 <h2 className="mt-4 font-semibold">Vos droits</h2>
-                <p>Vous disposez d’un droit d’accès, de rectification, de suppression et d’opposition. Pour exercer vos droits : contact@votresite.com</p>
+                <p>Vous disposez d’un droit d’accès, de rectification, de suppression et d’opposition. Pour exercer vos droits :  contact@imnantais.com</p>
 
                 <h2 className="mt-4 font-semibold">Cookies</h2>
                 <p>Des cookies peuvent être déposés pour mesurer l’audience ou améliorer la navigation. Vous pouvez gérer vos préférences depuis votre navigateur.</p>
 
                 <h2 className="mt-4 font-semibold">Contact</h2>
-                <p>Pour toute question relative à vos données personnelles : contact@votresite.com</p>
+                <p>Pour toute question RGPD ou vie privée : contact@imnantais.com</p>
             </main>
             <Footer />
         </div>
