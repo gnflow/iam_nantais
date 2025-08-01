@@ -20,6 +20,7 @@ export default function Footer() {
             <li><Link href="/politique-confidentialite" className="hover:underline">Politique de confidentialité</Link></li>
             <li><Link href="/cookies" className="hover:underline">Politique des cookies</Link></li>
             <li><Link href="/suppression-donnees" className="hover:underline">Suppression de données</Link></li>
+            <li><Link href="/contact" className="hover:underline">contact</Link></li>
           </ul>
         </div>
 

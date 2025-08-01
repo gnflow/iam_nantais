@@ -1,3 +1,4 @@
+import Footer from '@/components/UI/footer';
 import Header from '@/components/UI/header';
 import Image from 'next/image';
 
@@ -12,7 +13,7 @@ export default function Dashboard() {
         <p className="text-white text-lg sm:text-xl mb-6">A définir...</p>
       </section>
       
-      
+      <Footer />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import Header from '@/components/UI/header';
 import Image from 'next/image';
 import YouTubePlaylistNetflix from '@/components/UI/rs/ytbPlaylistNetflix'
 import InstagramPlaylistScroll from '@/components/UI/rs/ntgPlaylistNetflix'
+import Footer from '@/components/UI/footer';
 export default function Presentation() {
   return (
     <div className="flex flex-col items-center min-h-screen bg-gradient-to-b from-red-500 to-blue-500 p-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -20,7 +21,7 @@ export default function Presentation() {
       <YouTubePlaylistNetflix/>
       <InstagramPlaylistScroll/>
       
-   
+      <Footer />
     </div>
   );
 }

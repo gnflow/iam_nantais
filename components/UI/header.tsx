@@ -39,7 +39,7 @@ const Header: React.FC = () => {
         </nav>
         
         {/* Desktop Actions */}
-        <div className="hidden lg:flex items-center space-x-4">
+        {/* <div className="hidden lg:flex items-center space-x-4">
           <button className="p-2 hover:text-red-500" onClick={toggleSearch}>
             <Search size={20} />
           </button>
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
           <Link href="/signin" className="px-4 py-2 bg-black text-white rounded-md hover:opacity-80 transition">
             Sign In
           </Link>
-        </div>
+        </div> */}
         
         {/* Hamburger Icon for Mobile */}
         <div className="lg:hidden">
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
           <li><a href="/artistes" className="uppercase hover:text-red-500" onClick={closeMenu}>Artistes</a></li>
           
           {/* Mobile Actions */}
-          <div className="flex flex-col items-center space-y-2 mt-4">
+          {/* <div className="flex flex-col items-center space-y-2 mt-4">
             <button className="p-2 hover:text-red-500" onClick={toggleSearch}>
               <Search size={24} />
             </button>
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
             <Link href="/signin" className="px-6 py-2 bg-black text-white rounded-md hover:opacity-80 transition">
               Sign In
             </Link>
-          </div>
+          </div> */}
         </ul>
       </nav>
       

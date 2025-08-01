@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/UI/header';
 import Link from 'next/link';
+import Footer from '../UI/footer';
 
 // Définition du type des événements
 interface Event {
@@ -51,6 +52,7 @@ export default function EventsBooking() {
         <h2 className="text-2xl font-semibold text-center mb-4">Ambiance Musicale</h2>
         <iframe className="w-full h-80" src="https://open.spotify.com/embed/playlist/PLAYLIST_ID" allow="encrypted-media"></iframe>
       </div>
+      <Footer />
     </div>
   );
 }

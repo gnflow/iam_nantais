@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/UI/card";
 import { Button } from "@/components/UI/button";
+import Footer from '../UI/footer';
 
 const categories = [
     { name: "Musique", key: "musique" },
@@ -76,6 +77,7 @@ export default function Presentation() {
           </Card>
         ))}
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -16,7 +16,7 @@ export default function Home() {
           priority               // Priorise le chargement de cette image
         />
       </main>
-      <div className="flex justify-between w-full mt-10">
+      <div className="flex justify-between w-full mt-10 mb-5">
         <a
           href="#playlist"
           className="flex items-center justify-center bg-red-500 text-white rounded-lg py-2 px-4 w-full max-w-[150px] text-center"

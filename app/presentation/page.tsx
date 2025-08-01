@@ -1,3 +1,4 @@
+import Footer from '@/components/UI/footer';
 import Header from '@/components/UI/header';
 import Image from 'next/image';
 
@@ -22,7 +23,7 @@ export default function Presentation() {
           allowFullScreen
         ></iframe>
       </div>
-      
+      <Footer />
     </div>
   );
 }
