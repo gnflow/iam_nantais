@@ -27,7 +27,7 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold mb-2">Crédits</h3>
           <p>
-            Design & développement : <br />
+            Conception & développement : <br />
             <a href="#" target="_blank" rel="noopener noreferrer" className="underline">
               PHNM Ethica Partners
             </a>
